@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -16,5 +11,3 @@ span.cl-avatarBox.cl-userButtonAvatarBox.🔒️.cl-internal-1j7ahlv {
   width: 46px;
   height: 46px;
 }
-
-
