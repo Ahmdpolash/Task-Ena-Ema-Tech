@@ -12,9 +12,9 @@ export default function DashboardLayout({
 }>) {
   return (
     <div>
-      <div className="h-screen flex">
+      <div className="h-screen flex bg-[#E2E8F0]">
         {/* LEFT */}
-        <div className="w-[14%] md:w-[8%] lg:w-[20%] xl:w-[18%] - border-r hidden lg:block  relative">
+        <div className="w-[14%] md:w-[8%] bg-white lg:w-[20%] xl:w-[18%] - border-r hidden lg:block  relative">
           <Sidebar />
         </div>
         {/* RIGHT */}
