@@ -1,11 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import DashbHeaders from "./DashbHeaders";
-import { FaEye, FaPlus } from "react-icons/fa";
-import Link from "next/link";
+
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 import { FaRegEdit } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
+import Modal from "./Modal";
 
 const Task = () => {
   return (
@@ -28,9 +29,7 @@ const Task = () => {
                 <option value="pending">pending</option>
               </select>
 
-              <button className="px-2 lg:px-4 py-2 bg-[#406BBF] text-white text-[1.1rem] rounded-full flex items-center gap-[10px]">
-                Add Task <FaPlus className="text-[1rem]" />
-              </button>
+              <Modal />
             </div>
 
             <div className="lg:w-full overflow-x-auto">
