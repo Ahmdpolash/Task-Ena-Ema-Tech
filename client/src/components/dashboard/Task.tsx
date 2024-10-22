@@ -16,11 +16,12 @@ import { TaskFormInputs } from "@/types";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import Loader from "./Loader";
 
 const Task = () => {
   const [priority, setPriority] = useState("");
 
-  const { data } = useGetTasksQuery(priority);
+  const { data, isLoading } = useGetTasksQuery(priority);
   const [updateStatus] = useUpdateTasksCompletionMutation();
   const [deleteTask] = useDeleteTasksMutation();
 
@@ -58,6 +59,14 @@ const Task = () => {
     toast.success(`Congratulations ! you've completed your task`);
   };
 
+  if (isLoading) {
+    return (
+      <div className="h-[calc(100vh_-_70px)] flex justify-center items-center ">
+        <Loader />;
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="py- px-2 md:px-4  lg:px-5">
@@ -75,8 +84,6 @@ const Task = () => {
                 <option value="high">high</option>
                 <option value="low">low</option>
                 <option value="medium">medium</option>
-                <option value="completed">completed</option>
-                <option value="pending">pending</option>
               </select>
 
               <Modal />

@@ -38,19 +38,31 @@ const Sidebar = () => {
           </div>
           <div className="lg:mt-16 ">
             <ul className="flex flex-col gap-y-2">
-              <li>
+              <li className="hover:ml-2 transition-all  duration-300">
                 <Link
                   className={`${
                     pathname === "/dashboard" ? "bg-slate-300 " : ""
-                  }flex items-center p-2 rounded-r-md cursor-pointer text-[18px] font-medium gap-2`}
+                  }flex items-center p-2 rounded-r-md cursor-pointer bg-slate-100 text-[18px] font-medium gap-2`}
                   href={"/dashboard"}
+                >
+                  {" "}
+                  <BiTask size={22} />
+                  Dashboard
+                </Link>
+              </li>
+              <li className="hover:ml-2 transition-all  duration-300">
+                <Link
+                  className={`${
+                    pathname === "/dashboard/all-tasks" ? "bg-slate-300 " : ""
+                  }flex items-center p-2 rounded-r-md bg-slate-100 cursor-pointer text-[18px] font-medium gap-2`}
+                  href={"/dashboard/all-tasks"}
                 >
                   {" "}
                   <BiTask size={22} />
                   All Tasks
                 </Link>
               </li>
-              <li>
+              <li className="hover:ml-2 transition-all  duration-300">
                 <Link
                   className={`${
                     pathname === "/" ? "bg-slate-300 " : ""

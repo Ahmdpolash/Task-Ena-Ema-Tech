@@ -16,7 +16,7 @@ cd server
 npm i
 ```
 
-- make a folder name .env and paste it on there
+- make a folder in root name .env and paste it on there
 
 ```bash
 DATABASE_URI="mongodb+srv://task:task@cluster0.yrssrk8.mongodb.net/task-management?retryWrites=true&w=majority&appName=Cluster0"
@@ -46,7 +46,7 @@ cd client
 npm i
 ```
 
-- make a folder name .env.local and paste it on there
+- make a folder in root name .env.local and paste it on there
 
 ```bash
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_Y29uY2lzZS10aXRtb3VzZS03MC5jbGVyay5hY2NvdW50cy5kZXYk

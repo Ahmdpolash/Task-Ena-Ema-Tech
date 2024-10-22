@@ -1,5 +1,7 @@
 import { UserButton } from "@clerk/nextjs";
-import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import logo2 from "@/assest/logo-efd74f61.svg";
 
 const DashbHeaders = () => {
   return (
@@ -13,6 +15,10 @@ const DashbHeaders = () => {
               placeholder="search by tags &  name"
               className="outline-none hidden lg:block border border-gray-300 rounded-md shadow-sm w-11/12 py-2 px-3"
             />
+
+            <Link className="block lg:hidden" href={"/"}>
+              <Image src={logo2} width={120} height={40} alt="logo" />
+            </Link>
           </div>
 
           <div className="">
