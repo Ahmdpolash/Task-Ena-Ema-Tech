@@ -1,6 +1,6 @@
 "use client";
 import { SignInButton, SignOutButton, useAuth, useUser } from "@clerk/nextjs";
-import { EmailAddress } from "@clerk/nextjs/server";
+
 import Image from "next/image";
 import React from "react";
 import { BiTask } from "react-icons/bi";
@@ -10,12 +10,13 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const Sidebar = () => {
+  const pathname = usePathname();
+
   const { user } = useUser();
   const { sessionId } = useAuth();
   if (!sessionId) {
     return <SignInButton />;
   }
-  const pathname = usePathname();
 
   return (
     <div>

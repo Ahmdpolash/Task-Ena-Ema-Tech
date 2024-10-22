@@ -1,8 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Image from "next/image";
-import Link from "next/link";
-import logo from "@/assest/logo-efd74f61.svg";
-import { useUser } from "@clerk/nextjs";
 import Sidebar from "@/components/dashboard/Sidebar/Sidebar";
 
 export default function DashboardLayout({
@@ -18,7 +13,7 @@ export default function DashboardLayout({
           <Sidebar />
         </div>
         {/* RIGHT */}
-        <div className="w-full md:w-[92%] lg:w-[84%] xl:w-[86%] bg-[#F7F8FA] overflow-scroll flex flex-col">
+        <div className="w-full md:w-[92%] lg:w-[84%] xl:w-[86%] bg-[#f3f5f7] overflow-scroll flex flex-col">
           {children}
         </div>
       </div>

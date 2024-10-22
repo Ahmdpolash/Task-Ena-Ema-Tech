@@ -1,25 +1,20 @@
 "use client";
+import { useAddTasksMutation } from "@/redux/api/api";
+import { TaskFormInputs } from "@/types";
 import React, { FormEvent, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { FaPlus } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
-
-interface TaskFormInputs {
-  name: string;
-  description: string;
-  date: string;
-  priority: "low" | "medium" | "high";
-  categories: string;
-}
 
 const Modal = () => {
   const [isModalOpen, setisModalOpen] = useState(false);
 
   const [state, setState] = useState<TaskFormInputs>({
-    name: "",
+    taskName: "",
     description: "",
     date: "",
-    priority: "low",
-    categories: "",
+    priority: "",
+    category: "",
   });
 
   const handleChange = (e: FormEvent) => {
@@ -34,10 +29,24 @@ const Modal = () => {
     });
   };
 
-  console.log(state);
+  const [addTask, { isLoading }] = useAddTasksMutation();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    const selectedDate = new Date(state.date);
+    const currentDate = new Date();
+
+
+    if (selectedDate <= currentDate) {
+      toast.error("Please select a future date.");
+      return;
+    }
+    addTask(state);
+    setisModalOpen(false);
   };
 
   return (
@@ -80,10 +89,11 @@ const Modal = () => {
                 <input
                   onChange={handleChange}
                   type="text"
-                  value={state?.name}
-                  name="name"
-                  id="name"
+                  value={state?.taskName}
+                  name="taskName"
+                  id="taskName"
                   placeholder="task name"
+                  required
                   className="py-2 px-3 border border-[#d1d1d1] rounded-md w-full focus:outline-none mt-1 focus:border-[#3B9DF8]"
                 />
               </div>
@@ -97,12 +107,14 @@ const Modal = () => {
                 </label>
                 <textarea
                   onChange={handleChange}
-                  className="w-full  border border-[#d1d1d1] rounded-md focus:outline-none mt-1 focus:border-[#3B9DF8]"
+                  className="w-full p-2 border border-[#d1d1d1] rounded-md focus:outline-none mt-1 focus:border-[#3B9DF8]"
                   name="description"
                   id=""
+                  placeholder="description"
                   value={state?.description}
                   cols={4}
                   rows={4}
+                  required
                 ></textarea>
               </div>
 
@@ -121,6 +133,7 @@ const Modal = () => {
                     name="priority"
                     value={state.priority}
                     id=""
+                    required
                   >
                     <option className="text-slate-400" selected value="">
                       Select priority
@@ -145,13 +158,14 @@ const Modal = () => {
                   name="date"
                   value={state.date}
                   id="date"
+                  required
                   className="py-2 px-3 border border-[#d1d1d1] rounded-md w-full focus:outline-none mt-1 focus:border-[#3B9DF8]"
                 />
               </div>
 
               <div>
                 <label
-                  htmlFor="categories"
+                  htmlFor="category"
                   className="text-[1rem] font-[500] text-[#464646]"
                 >
                   Categories
@@ -161,16 +175,17 @@ const Modal = () => {
                   <select
                     onChange={handleChange}
                     className="w-full mb-1 py-2 border border-[#d1d1d1] rounded-md focus:outline-none mt-1 focus:border-[#3B9DF8]"
-                    name="categories"
-                    value={state.categories}
+                    name="category"
+                    value={state.category}
+                    required
                     id=""
                   >
                     <option className="text-slate-400" selected value="">
                       Select Categories
                     </option>
-                    <option value="work">Work</option>
-                    <option value="personal">Personal</option>
-                    <option value="others">Others</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Others">Others</option>
                   </select>
                 </div>
               </div>
@@ -185,6 +200,8 @@ const Modal = () => {
           </div>
         </div>
       </div>
+
+      <Toaster />
     </div>
   );
 };

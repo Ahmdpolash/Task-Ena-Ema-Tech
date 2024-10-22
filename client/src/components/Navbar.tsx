@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import logo from "@/assest/logo.png";
+
 import logo2 from "@/assest//logo-efd74f61.svg";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
-import { BsCartCheck } from "react-icons/bs";
+
 import Link from "next/link";
 import Container from "./Container";
 import Image from "next/image";

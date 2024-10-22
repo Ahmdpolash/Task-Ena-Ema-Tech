@@ -6,7 +6,13 @@ import { taskRouter } from "./app/modules/Tasks/task.route";
 const app: Application = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://task-management-jt.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Authorization", "Content-Type"],
+  })
+);
 
 //routes
 app.use("/api", taskRouter);

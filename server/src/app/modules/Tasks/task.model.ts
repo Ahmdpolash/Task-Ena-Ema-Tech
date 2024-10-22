@@ -4,7 +4,11 @@ import { TTask } from "./task.interface";
 const TaskSchema = new Schema<TTask>(
   {
     taskName: {
-      type: "string",
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
       required: true,
     },
     date: {
@@ -16,9 +20,18 @@ const TaskSchema = new Schema<TTask>(
       enum: ["low", "medium", "high"],
       required: true,
     },
-    tags: {
+    category: {
       type: String,
+      enum: ["Work", "Personal", "Others"],
       required: true,
+    },
+    isCompleted: {
+      type: Boolean,
+      default: false,
+    },
+    reminder: {
+      type: Boolean,
+      default: false, // Task reminders off by default
     },
   },
   {

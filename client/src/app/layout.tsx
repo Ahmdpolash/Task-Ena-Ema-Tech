@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import NextTopLoader from "nextjs-toploader";
+import Providers from "@/lib/Providers";
 
 export const metadata: Metadata = {
   title: "Task-Management-Application",
@@ -15,18 +16,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body>
-          <NextTopLoader
-            height={2}
-            color="#27AE60"
-            easing="cubic-bezier(0.53,0.21,0,1)"
-            showSpinner={false}
-          />
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <Providers>
+      <ClerkProvider>
+        <html lang="en">
+          <body>
+            <NextTopLoader
+              height={2}
+              color="#27AE60"
+              easing="cubic-bezier(0.53,0.21,0,1)"
+              showSpinner={false}
+            />
+            {children}
+          </body>
+        </html>
+      </ClerkProvider>
+    </Providers>
   );
 }
