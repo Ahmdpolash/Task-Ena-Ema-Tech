@@ -1,11 +1,12 @@
 ## Task Mangement Wesbite : 
 
 ## Project setup
-### Server setup -
+
 ```bash
 $ git clone https://github.com/Ahmdpolash/Task-Ena-Ema-Tech.git
 ```
-- open in vs code
+### Server setup -
+- open folder in vs code
 ```
 cd server
 ```
@@ -15,6 +16,8 @@ npm i
 - run command
 ```
 npm run start:dev
+# for watch
+npm run watch
 ```
 
 
