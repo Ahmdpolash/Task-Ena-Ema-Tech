@@ -14,10 +14,15 @@ cd server
 npm i
 ```
 - run command
-```
-npm run start:dev
-# for watch
-npm run watch
+```bash
+# development
+$ npm run start:dev
+
+# watch mode
+$ npm run watch
+
+# production mode
+$ npm run start:prod
 ```
 
 
