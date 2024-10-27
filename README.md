@@ -14,13 +14,14 @@ cd server
 
 ```
 npm i
+tsc
 ```
 
 - make a folder in root name .env and paste it on there
 
 ```bash
-DATABASE_URI="mongodb+srv://task:task@cluster0.yrssrk8.mongodb.net/task-management?retryWrites=true&w=majority&appName=Cluster0"
-PORT=8000
+DATABASE_URI=
+PORT=
 ```
 
 -run the server
@@ -49,8 +50,8 @@ npm i
 - make a folder in root name .env.local and paste it on there
 
 ```bash
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_Y29uY2lzZS10aXRtb3VzZS03MC5jbGVyay5hY2NvdW50cy5kZXYk
-CLERK_SECRET_KEY=sk_test_7gAqNQlRVcmjO9e46eta2Pd9fzRlhmpOMNT0CtPr3C
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
 
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
